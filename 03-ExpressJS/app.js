@@ -1,24 +1,25 @@
-const http = require('http');
-const routes = require('./routes');
-
 const express = require('express')
 
 const app = express();
 
 // app.use() registers a middleware function in Express.
-app.use((req, res, next) => {
-    console.log("in the middleware");
+
+app.use('/', (req, res, next) => {
+    console.log("This is always run");
     next();
+})
+
+app.use('/add-product',(req, res, next) => {
+    console.log("In another middleware!"); 
+    res.send('<h1>Add Product page</h1>');
 });
 
-app.use((req, res, next) => {
+
+app.use('/h',(req, res, next) => {
     console.log("In another middleware!"); 
     res.send('<h1>Hello from Express!</h1>');
 });
 
 
-// Callback function => executed when the request happens
-const server = http.createServer(app);
-
-// Listening for incoming requests
-server.listen(3000);
+// creating the server and listening at the same time
+app.listen(3000);
