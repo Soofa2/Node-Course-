@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/add-product', productController.getAddProduct);
 
 // /admin/add-product => POST
-router.post('/add-product', productController.postAddProudct);
+router.post('/add-product', productController.postAddProduct);
 
 module.exports = router;
 

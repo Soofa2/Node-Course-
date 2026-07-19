@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const appController = require('../05-MVC/Controllers/error')
+const appController = require('./Controllers/error')
 const app = express();
 
 app.set('view engine', 'ejs');
